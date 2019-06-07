@@ -117,11 +117,18 @@
   <ItemGroup>
     <ClInclude Include="cLista.h" />
     <ClInclude Include="MegaThunderPlaneList.h" />
+    <ClInclude Include="Pasajero.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MegaThunderPlaneList.cpp" />
+    <ClCompile Include="Pasajero.cpp" />
     <ClCompile Include="Persona.cpp" />
+    <ClCompile Include="pruba.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="tp final- avion.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
