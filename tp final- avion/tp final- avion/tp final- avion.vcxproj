@@ -115,17 +115,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Azafate.h" />
     <ClInclude Include="cLista.h" />
+    <ClInclude Include="Copiloto.h" />
+    <ClInclude Include="Ejecutivo.h" />
+    <ClInclude Include="Evento.h" />
+    <ClInclude Include="Marshall.h" />
     <ClInclude Include="MegaThunderPlaneList.h" />
     <ClInclude Include="Pasajero.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Piloto.h" />
+    <ClInclude Include="Primera.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Turista.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Azafate.cpp" />
+    <ClCompile Include="Copiloto.cpp" />
+    <ClCompile Include="Ejecutivo.cpp" />
+    <ClCompile Include="Evento.cpp" />
+    <ClCompile Include="Marshall.cpp" />
     <ClCompile Include="MegaThunderPlaneList.cpp" />
     <ClCompile Include="Pasajero.cpp" />
     <ClCompile Include="Persona.cpp" />
+    <ClCompile Include="Piloto.cpp" />
+    <ClCompile Include="Primera.cpp" />
     <ClCompile Include="pruba.cpp" />
+    <ClCompile Include="Turista.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="tp final- avion.rc" />

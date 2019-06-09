@@ -13,7 +13,7 @@ protected://para que se lo pase a los hijos
 public:
 	Persona(string nombre, string apellido);
 	~Persona();
-	void Banio();//este tambn se pasa a los hijos, pero como es un metodo no tiene que estar protegido
+	virtual void Banio();//este tambn se pasa a los hijos, pero como es un metodo no tiene que estar protegido
 	
 };
 

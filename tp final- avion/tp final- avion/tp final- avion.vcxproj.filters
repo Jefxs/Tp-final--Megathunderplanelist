@@ -30,6 +30,30 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Azafate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Piloto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Copiloto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Marshall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ejecutivo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Turista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Primera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Evento.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MegaThunderPlaneList.cpp">
@@ -42,6 +66,30 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pruba.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Azafate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Piloto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Copiloto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Marshall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ejecutivo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Turista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Primera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Evento.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
