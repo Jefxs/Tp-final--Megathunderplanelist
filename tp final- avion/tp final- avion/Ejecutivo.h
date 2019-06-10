@@ -4,9 +4,10 @@
 //NIETA DE PERSONA
 class Ejecutivo:public Pasajero //HERENCIA
 {
+
 	
 public:
-	Ejecutivo();
+	Ejecutivo(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto);
 	~Ejecutivo();
 	void UsarNotebook();
 };

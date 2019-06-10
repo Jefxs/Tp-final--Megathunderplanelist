@@ -10,6 +10,7 @@ class Azafate : public Persona //HERENCIA
 public:
 	Azafate(string nombre, string apellido);
 	~Azafate();
+	void Banio();
 	void AtenderPasajero();
 	void HacerAnuncio();
 	void EntregarBebida();

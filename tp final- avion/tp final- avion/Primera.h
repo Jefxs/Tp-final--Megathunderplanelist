@@ -6,7 +6,7 @@ class Azafate;
 class Primera: public Pasajero //HERENCIA
 {
 public:
-	Primera();
+	Primera(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto);
 	~Primera();
 	void Masajes(Azafate *azafate);
 	void Champagne(Azafate *azafate);

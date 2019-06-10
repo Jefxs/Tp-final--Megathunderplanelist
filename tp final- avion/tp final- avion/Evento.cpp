@@ -2,10 +2,10 @@
 
 
 
-Evento::Evento()
+Evento::Evento(Persona *persona, string evento)
 {
-}
 
+}
 
 Evento::~Evento()
 {

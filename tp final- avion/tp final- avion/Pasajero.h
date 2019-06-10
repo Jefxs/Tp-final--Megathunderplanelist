@@ -15,6 +15,7 @@ protected://para que se lo pase a los hijos
 public:
 	Pasajero(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto);
 	~Pasajero();
+	void Banio();
 	void Imprimir();
 	void PedirComida(Azafate *azafate);
 	void PedirBebida(Azafate *azafate);

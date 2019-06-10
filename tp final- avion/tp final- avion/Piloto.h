@@ -2,10 +2,11 @@
 #include "Persona.h"
 class Evento;
 class Azafate;
-#include "Copiloto.h"
+class Copiloto;
 //HIJA DE PERSONA
 class Piloto: public Persona//HERENCIA
 {
+	
 	Evento *EventoP;
 protected:
 	bool Pilotear;
@@ -23,8 +24,5 @@ public:
 	void HacerAnuncio();
 	void AsignarAnuncio(Azafate *azafate);
 	void Banio(Copiloto *copiloto);
-
-
-
 };
 

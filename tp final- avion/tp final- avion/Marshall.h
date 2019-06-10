@@ -8,7 +8,7 @@ class Marshall:public Pasajero//HERENCIA
 	Evento *EventoM;
 	
 public:
-	Marshall();
+	Marshall(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto);
 	~Marshall();
 	void ReducirPasajero(Pasajero *pasajero);
 

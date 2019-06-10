@@ -13,4 +13,5 @@ Copiloto::~Copiloto()
 
 void Copiloto::LLamarTorreControl()
 {
+	cout <<"Copiloto:"<< Nombre << " " << Apellido << "llama a torre de control." << endl;
 }

@@ -10,8 +10,3 @@ Persona::~Persona()
 {
 }
 
-void Persona::Banio()
-{
-	cout << Nombre << " " << Apellido << " va al baño." << endl;
-}
-

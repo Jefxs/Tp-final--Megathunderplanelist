@@ -1,4 +1,9 @@
 #include "Piloto.h"
+#include "Azafate.h"
+#include "Copiloto.h"
+#include "Evento.h"
+#include "cLista.h"
+#include "MegaThunderPlaneList.h"
 
 
 
@@ -33,16 +38,15 @@ void Piloto::HacerAnuncio()
 
 void Piloto::AsignarAnuncio(Azafate * azafate)
 {
+	cout << "Piloto" << Nombre << " " << Apellido << " asigna anuncio a azafate." << endl;
+	azafate->HacerAnuncio();
 }
 
 void Piloto::Banio(Copiloto *copiloto)
 {
-	Pilotear = false;
-	cout << "Piloto deja de pilotear.";
-	/*copiloto->setPiloteando(true);*///????
-	cout << "Copiloto pilotea.";
-
-
-    
-	
+	//Pilotear = false;
+	cout << "Piloto deja de pilotear."<<endl;
+	//copiloto->setPiloteando(true);
+	//MegaThunderPlaneList::ListaEventos->/////agregar evento
+	cout << "Copiloto pilotea." << endl;
 }
