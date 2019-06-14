@@ -2,10 +2,9 @@
 
 
 
-Pasajero::Pasajero(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto):Persona( nombre, apellido), Codigo(codigo)//error?
+Pasajero::Pasajero(string nombre, string apellido, string codigo):Persona( nombre, apellido), Codigo(codigo)
 {
-	Arrebato = arrebato;
-	Descompuesto = descompuesto;
+	
 }
 
 Pasajero::~Pasajero()
@@ -24,6 +23,7 @@ void Pasajero::Imprimir()
 
 void Pasajero::PedirComida(Azafate * azafate)
 {
+	cout << Nombre << " " << Apellido << " pide comida." << endl;
 }
 
 void Pasajero::PedirBebida(Azafate * azafate)

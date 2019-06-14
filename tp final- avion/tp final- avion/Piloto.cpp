@@ -16,37 +16,52 @@ Piloto::~Piloto()
 {
 }
 
-void Piloto::Despegando()
+Evento Piloto::Despegando()
 {
+	cout << "DESPEGUE" << endl;
+	return Evento(this, "Despegando el avion.");
 }
 
-void Piloto::Aterrizando()
+Evento Piloto::Aterrizando()
 {
+	cout << "Aterrizaje" << endl;
+	return Evento(this, "Aterrizando el avion.");
 }
 
-void Piloto::PedirComida(Azafate * azafate)
+Evento Piloto::PedirComida(Azafate * azafate)
 {
+	cout << "Piloto pide comida" << endl;
+	return Evento(this, "Piloto pide comida");
 }
 
-void Piloto::PedirBebida(Azafate * azafate)
+Evento Piloto::PedirBebida(Azafate * azafate)
 {
+	cout << "Piloto pide bebida" << endl;
+	return Evento(this, "Piloto pide bebida.");
 }
 
-void Piloto::HacerAnuncio()
+Evento Piloto::HacerAnuncio()
 {
+	cout << "Piloto hace anuncio" << endl;
+	return Evento(this, "Piloto hace anuncio.");
 }
 
-void Piloto::AsignarAnuncio(Azafate * azafate)
+Evento Piloto::AsignarAnuncio(Azafate * azafate)
 {
 	cout << "Piloto" << Nombre << " " << Apellido << " asigna anuncio a azafate." << endl;
 	azafate->HacerAnuncio();
+	return Evento(this, "Piloto asigna anuncio a azafate.");
 }
 
-void Piloto::Banio(Copiloto *copiloto)
+void Piloto::Banio()
 {
-	//Pilotear = false;
-	cout << "Piloto deja de pilotear."<<endl;
-	//copiloto->setPiloteando(true);
-	//MegaThunderPlaneList::ListaEventos->/////agregar evento
-	cout << "Copiloto pilotea." << endl;
+	
+	cout << "Piloto deja de pilotear y va al baño. Copiloto empieza a pilotear."<<endl;
+	
+}
+
+Evento Piloto::VuelveBanio()
+{
+	cout << "Piloto vuelve a pilotear."<<endl;
+	return Evento(this, "Piloto vuelve a pilotear");
 }

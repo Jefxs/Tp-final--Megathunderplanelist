@@ -5,18 +5,18 @@ class Evento;
 
 class Azafate : public Persona //HERENCIA 
 {
-	Evento *EventoA;
+
 
 public:
 	Azafate(string nombre, string apellido);
 	~Azafate();
 	void Banio();
-	void AtenderPasajero();
-	void HacerAnuncio();
-	void EntregarBebida();
-	void EntregarComida();
-	void EntregarChampagne();
-	void HacerMasajes();
+	Evento AtenderPasajero();
+	Evento HacerAnuncio();
+	Evento EntregarBebida();
+	Evento EntregarComida();
+	Evento EntregarChampagne();
+	Evento HacerMasajes();
 
 };
 

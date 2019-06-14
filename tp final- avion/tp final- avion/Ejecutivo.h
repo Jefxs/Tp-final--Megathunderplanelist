@@ -7,7 +7,7 @@ class Ejecutivo:public Pasajero //HERENCIA
 
 	
 public:
-	Ejecutivo(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto);
+	Ejecutivo(string nombre, string apellido, string codigo);
 	~Ejecutivo();
 	void UsarNotebook();
 };

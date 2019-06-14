@@ -9,11 +9,11 @@ class Pasajero :public Persona //HERENCIA
 {
 protected://para que se lo pase a los hijos
 	const string Codigo;//este no es static xq lo creamos nosotros para la simulacion
-	bool Arrebato;
-	bool Descompuesto;
+	
 	
 public:
-	Pasajero(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto);
+	
+	Pasajero(string nombre, string apellido, string codigo);
 	~Pasajero();
 	void Banio();
 	void Imprimir();
@@ -21,7 +21,7 @@ public:
 	void PedirBebida(Azafate *azafate);
 	void Dormir();
 	void PedirAyuda(Azafate *azafate);
-	//setters y getters
+	
 
 };
 

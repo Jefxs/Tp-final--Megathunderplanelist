@@ -2,11 +2,18 @@
 
 
 
-Evento::Evento(Persona *persona, string evento)
+Evento::Evento(Persona *person, string event)
 {
+	persona = person;
+	evento = event;
 
 }
 
 Evento::~Evento()
 {
+}
+
+void Evento::Imprimir()
+{
+	cout << evento;
 }

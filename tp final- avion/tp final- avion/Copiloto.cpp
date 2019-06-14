@@ -1,4 +1,5 @@
 #include "Copiloto.h"
+#include "Evento.h"
 
 
 
@@ -11,7 +12,8 @@ Copiloto::~Copiloto()
 {
 }
 
-void Copiloto::LLamarTorreControl()
+Evento Copiloto::LLamarTorreControl()
 {
 	cout <<"Copiloto:"<< Nombre << " " << Apellido << "llama a torre de control." << endl;
+	return Evento(this, "Copiloto llama a torre de control.");
 }

@@ -3,32 +3,41 @@
 #include "Pasajero.h"
 #include "Ejecutivo.h"
 #include "Piloto.h"
+#include "Turista.h"
 #include "Copiloto.h"
+#include "Marshall.h"
+#include "Primera.h"
 #include <string>
+#include "Evento.h"
+#include "Azafate.h"
 #include <stdlib.h>
-//para utilizar la cllase hija hay que agregar la clase padre
+//para utilizar la clase hija hay que agregar la clase padre
 using namespace std;
 
 
+
 int main() {
+	Ejecutivo *ejecutivo = new Ejecutivo("Topisima", "(Sandra de Noche)", "ej2312341");
+	Turista *turista = new Turista("Mari", "Castidad", "t4390939ak");
+	Primera *primera = new Primera("Andres", "Naddeo", "p40901759a1");
+	Piloto *piloto = new Piloto("Celia", "Etcheverry");
+	Copiloto *copiloto = new Copiloto("Agustina", "Mustard");
+	Azafate *azafate[R];
+	azafate[1] = new Azafate("Pampa", "Fafafa");
+	azafate[0] = new Azafate("Franco", "Ferrante");
+	ejecutivo->UsarNotebook();
+	primera->Masajes(azafate[1]);
+	primera->Champagne(azafate[0]);
 
-	Pasajero *pasajero = new Pasajero("Maria", "Casti", "3423llk",true, true);
-	pasajero->Imprimir();
-	delete pasajero;
-	//funciona constructor de persona
 
-	Ejecutivo *ejecutivo = new Ejecutivo("Adrian", "castiperry", "rtete", true, true);
-	ejecutivo->Banio();
-	ejecutivo->Imprimir();
-
-
-
-//	Copiloto *copiloto = new Copiloto("leche", "lacha");
 	
-
-//	Piloto *piloto = new Piloto("lecheee", "nacha");
-
 	delete ejecutivo;
+	delete turista;
+	delete primera;
+	delete piloto;
+	delete azafate[0];
+	delete azafate[1];
+
 
 	system("pause");
 	return 0;

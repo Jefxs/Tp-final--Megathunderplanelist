@@ -1,8 +1,8 @@
 #include "Primera.h"
 #include "Azafate.h"
+#include "Evento.h"
 
-
-Primera::Primera(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto) : Pasajero(nombre, apellido, codigo, arrebato, descompuesto)
+Primera::Primera(string nombre, string apellido, string codigo) : Pasajero(nombre, apellido, codigo)
 {
 }
 
@@ -11,16 +11,17 @@ Primera::~Primera()
 {
 }
 
-void Primera::Masajes(Azafate * azafate)
+Evento Primera::Masajes(Azafate *azafate)
 {
 	cout << Nombre << " " << Apellido << " pide masajes." << endl;
-	azafate->HacerMasajes();
+	Evento eventito= azafate->HacerMasajes();
+	return  eventito;
 }
 
-void Primera::Champagne(Azafate * azafate)
+Evento Primera::Champagne(Azafate *azafate)
 {
 	cout << Nombre << " " << Apellido << " pide champagne." << endl;
-	azafate->EntregarChampagne();
+	return azafate->EntregarChampagne();
 }
 
 void Primera::UsarNotebook()

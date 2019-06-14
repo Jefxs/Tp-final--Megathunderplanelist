@@ -3,7 +3,7 @@
 
 
 
-Ejecutivo::Ejecutivo(string nombre, string apellido, string codigo, bool arrebato, bool descompuesto):Pasajero(nombre, apellido, codigo, arrebato, descompuesto)
+Ejecutivo::Ejecutivo(string nombre, string apellido, string codigo):Pasajero(nombre, apellido, codigo)
 {
 
 }

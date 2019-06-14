@@ -1,5 +1,5 @@
 #include "Azafate.h"
-
+#include "Evento.h"
 
 
 Azafate::Azafate(string nombre, string apellido):Persona(nombre, apellido) 
@@ -18,33 +18,36 @@ void Azafate::Banio()
 	cout <<"Azafate:"<< Nombre << " " << Apellido << " va al baño." << endl;
 }
 
-void Azafate::AtenderPasajero()
+Evento Azafate::AtenderPasajero()
 {
 	cout << "Azafate:" << Nombre << " " << Apellido << " atiende a passajero." << endl;
-	//crear evento
+	return Evento(this, "Azafate atiende a pasajero");
 }
-
-void Azafate::HacerAnuncio()
+Evento Azafate::HacerAnuncio()
 {
 	cout << "Azafate:" << Nombre << " " << Apellido << " hace anuncio." << endl;
+	return Evento(this, "Azafate hace anuncio");
 }
-
-void Azafate::EntregarBebida()
+Evento Azafate::EntregarBebida()
 {
 	cout << "Azafate:" << Nombre << " " << Apellido << " entrega bebida a pasajero." << endl;
+	return Evento(this, "Azafate entrega bebida");
 }
 
-void Azafate::EntregarComida()
+Evento Azafate::EntregarComida()
 {
 	cout << "Azafate:" << Nombre << " " << Apellido << " entrega comida a pasajero." << endl;
+	return Evento(this, "Azafate entrega comida");
 }
 
-void Azafate::EntregarChampagne()
+Evento Azafate::EntregarChampagne()
 {
 	cout << "Azafate:" << Nombre << " " << Apellido << " entrega champagne a pasajero." << endl;
+	return Evento(this, "Azafate entrega champagne.");
 }
 
-void Azafate::HacerMasajes()
+Evento Azafate::HacerMasajes()
 {
 	cout << "Azafate:" << Nombre << " " << Apellido << " hace masajes a pasajero." << endl;
+	return Evento(this, "Azafate hace masajes.");
 }
