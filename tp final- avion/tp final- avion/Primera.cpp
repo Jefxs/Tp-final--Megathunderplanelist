@@ -11,17 +11,19 @@ Primera::~Primera()
 {
 }
 
-Evento Primera::Masajes(Azafate *azafate)
+Evento *Primera::Masajes(Azafate *azafate)
 {
 	cout << Nombre << " " << Apellido << " pide masajes." << endl;
-	Evento eventito= azafate->HacerMasajes();
+	Evento *eventito= azafate->HacerMasajes();
 	return  eventito;
 }
 
-Evento Primera::Champagne(Azafate *azafate)
+Evento* Primera::Champagne(Azafate *azafate)
 {
 	cout << Nombre << " " << Apellido << " pide champagne." << endl;
-	return azafate->EntregarChampagne();
+	Evento *eventito = azafate->EntregarChampagne();
+	return  eventito;
+
 }
 
 void Primera::UsarNotebook()

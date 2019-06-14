@@ -1,4 +1,6 @@
 #include "Pasajero.h"
+#include "Evento.h"
+#include "Azafate.h"
 
 
 
@@ -21,22 +23,29 @@ void Pasajero::Imprimir()
 	cout << Nombre << Apellido << Codigo << endl;
 }
 
-void Pasajero::PedirComida(Azafate * azafate)
+Evento *Pasajero::PedirComida(Azafate *azafate)
 {
 	cout << Nombre << " " << Apellido << " pide comida." << endl;
+	Evento *eventito = azafate->EntregarComida();
+	return  eventito;
 }
 
-void Pasajero::PedirBebida(Azafate * azafate)
+Evento *Pasajero::PedirBebida(Azafate * azafate)
 {
 	cout << Nombre << " " << Apellido << " pide bebida." << endl;
+	Evento *eventito = azafate->EntregarBebida();
+	return  eventito;
 }
 
 void Pasajero::Dormir()
 {
 	cout << Nombre << " " << Apellido << " se durmio." << endl;
+	
 }
 
-void Pasajero::PedirAyuda(Azafate * azafate)
+Evento *Pasajero::PedirAyuda(Azafate * azafate)
 {
 	cout<< Nombre << " " << Apellido << " pide ayuda." << endl;
+	Evento *eventito = azafate->AtenderPasajero();
+	return  eventito;
 }

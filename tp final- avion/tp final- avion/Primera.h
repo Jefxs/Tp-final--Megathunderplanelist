@@ -8,8 +8,8 @@ class Primera: public Pasajero //HERENCIA
 public:
 	Primera(string nombre, string apellido, string codigo);
 	~Primera();
-	Evento Masajes(Azafate *azafate);
-	Evento Champagne(Azafate *azafate);
+	Evento *Masajes(Azafate *azafate);
+	Evento *Champagne(Azafate *azafate);
 	void UsarNotebook();
 };
 

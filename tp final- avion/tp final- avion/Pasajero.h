@@ -5,6 +5,7 @@
 using namespace std;
 
 class Azafate;//lo que nos dijo pampa
+class Evento;
 class Pasajero :public Persona //HERENCIA
 {
 protected://para que se lo pase a los hijos
@@ -17,10 +18,10 @@ public:
 	~Pasajero();
 	void Banio();
 	void Imprimir();
-	void PedirComida(Azafate *azafate);
-	void PedirBebida(Azafate *azafate);
+	Evento *PedirComida(Azafate *azafate);
+	Evento *PedirBebida(Azafate *azafate);
 	void Dormir();
-	void PedirAyuda(Azafate *azafate);
+	Evento *PedirAyuda(Azafate *azafate);
 	
 
 };

@@ -16,41 +16,49 @@ Piloto::~Piloto()
 {
 }
 
-Evento Piloto::Despegando()
+Evento *Piloto::Despegando()
 {
 	cout << "DESPEGUE" << endl;
-	return Evento(this, "Despegando el avion.");
+	Evento *eventito = new Evento(this, "Despegando el avion.");
+	return  eventito;
+	
 }
 
-Evento Piloto::Aterrizando()
+Evento *Piloto::Aterrizando()
 {
 	cout << "Aterrizaje" << endl;
-	return Evento(this, "Aterrizando el avion.");
+	Evento *eventito = new Evento(this, "Aterrizando el avion.");
+	return  eventito;
 }
 
-Evento Piloto::PedirComida(Azafate * azafate)
+Evento *Piloto::PedirComida(Azafate * azafate)
 {
 	cout << "Piloto pide comida" << endl;
-	return Evento(this, "Piloto pide comida");
+	Evento *eventito = azafate->EntregarComida();
+	return  eventito;
+	
+	
 }
 
-Evento Piloto::PedirBebida(Azafate * azafate)
+Evento *Piloto::PedirBebida(Azafate * azafate)
 {
 	cout << "Piloto pide bebida" << endl;
-	return Evento(this, "Piloto pide bebida.");
+	Evento *eventito = azafate->EntregarBebida();
+	return  eventito;
 }
 
-Evento Piloto::HacerAnuncio()
+Evento *Piloto::HacerAnuncio()
 {
 	cout << "Piloto hace anuncio" << endl;
-	return Evento(this, "Piloto hace anuncio.");
+	Evento *eventito = new Evento(this, "Hace anuncio.");
+	return  eventito;
 }
 
-Evento Piloto::AsignarAnuncio(Azafate * azafate)
+Evento *Piloto::AsignarAnuncio(Azafate * azafate)
 {
 	cout << "Piloto" << Nombre << " " << Apellido << " asigna anuncio a azafate." << endl;
-	azafate->HacerAnuncio();
-	return Evento(this, "Piloto asigna anuncio a azafate.");
+	Evento *eventito = azafate->HacerAnuncio();
+	return eventito;
 }
 
 void Piloto::Banio()
@@ -60,8 +68,9 @@ void Piloto::Banio()
 	
 }
 
-Evento Piloto::VuelveBanio()
+Evento *Piloto::VuelveBanio()
 {
 	cout << "Piloto vuelve a pilotear."<<endl;
-	return Evento(this, "Piloto vuelve a pilotear");
+	Evento *eventito = new Evento(this, "Vuelve del banio.");
+	return  eventito;
 }
