@@ -9,7 +9,7 @@ class Evento
 public:
 	Evento(Persona *person, string event);
 	~Evento();
-	void Imprimir();
+	void PrintA();
 	string getCodigo() { return evento; }
 
 

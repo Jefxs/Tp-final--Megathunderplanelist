@@ -34,9 +34,12 @@ public:
 	void Listar();
 	T* BuscarItem(string codigo);
 	T* getItem(unsigned int pos);
-
+	int getCA() { return CA; }
 	unsigned int getItemPos(string codigo);
+	T* operator[](int pos);
+
 };
+
 
 template<class T>
 void cLista<T>::Redimensionalizar()
@@ -208,5 +211,13 @@ unsigned int cLista<T>::getItemPos(string codigo)
 	}
 
 	return INT_MAX;
+}
+
+template<class T>
+inline T * cLista<T>::operator[](int pos)
+{
+	if (pos < CA)
+		return vector[pos];
+	return NULL;
 }
 

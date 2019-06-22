@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tp final- avion", "tp final- avion\tp final- avion.vcxproj", "{EC5621E9-0B0C-41EF-B7CC-5FE373EBE055}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0AB1159C-9645-43AC-9FB1-41F3678E8DE9}"
+	ProjectSection(SolutionItems) = preProject
+		tp final- avion\main.cpp = tp final- avion\main.cpp
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

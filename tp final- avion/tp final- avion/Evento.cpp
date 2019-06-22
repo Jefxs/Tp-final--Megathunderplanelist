@@ -13,7 +13,7 @@ Evento::~Evento()
 {
 }
 
-void Evento::Imprimir()
+void Evento::PrintA()
 {
 	cout << evento;
 }

@@ -10,8 +10,7 @@ class Pasajero :public Persona //HERENCIA
 {
 protected://para que se lo pase a los hijos
 	const string Codigo;//este no es static xq lo creamos nosotros para la simulacion
-	
-	
+		
 public:
 	
 	Pasajero(string nombre, string apellido, string codigo);
@@ -22,6 +21,7 @@ public:
 	Evento *PedirBebida(Azafate *azafate);
 	void Dormir();
 	Evento *PedirAyuda(Azafate *azafate);
+	string getCodigo()const { return Codigo; }
 	
 
 };
