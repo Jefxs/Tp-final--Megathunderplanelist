@@ -62,3 +62,8 @@ void MegaThunderPlaneList::AgregarEvento(Evento *evento)//evento tiene una perso
 	ListaEventos->AgregarItem(evento);
 }
 
+void MegaThunderPlaneList::operator+(Evento * evento)
+{
+	this->AgregarEvento(evento);
+}
+

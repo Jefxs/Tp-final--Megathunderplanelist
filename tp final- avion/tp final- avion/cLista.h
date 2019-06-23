@@ -23,6 +23,7 @@ public:
 
 	bool AgregarItem(T *item);
 	bool AgregarItemOrdenado(const T *item);
+	void Agregarstring(T *stingcito);
 
 	T* Quitar(string codigo);
 	T* Quitar(T *item);
@@ -86,7 +87,7 @@ void cLista<T>::Listar()
 
 	for (unsigned int i = 0; i < CA; i++)
 	{
-		vector[i]->PrintA();// imprimir
+		vector[i]->Imprimir();// imprimir
 	}
 }
 
@@ -100,7 +101,7 @@ bool cLista<T>::AgregarItem(T * item)
 
 	if (CA < TAM)
 		vector[CA++] = item;
-	else throw new exception("No hay tamaño suficiente para agregar el item");;
+	else throw new exception("No hay tamaño suficiente para agregar el item");
 	return true;
 }
 
@@ -114,6 +115,17 @@ bool cLista<T>::AgregarItemOrdenado(const T * item)
 	}
 	*/
 	return NULL;
+}
+
+template<class T>
+inline void cLista<T>::Agregarstring(T *stingcito)
+{
+	if (CA < TAM)
+	{
+		CA++;
+		vector[CA] = stingcito;
+	}
+	else throw new exception("No hay tamaño suficiente para agregar el item");
 }
 
 template<class T>

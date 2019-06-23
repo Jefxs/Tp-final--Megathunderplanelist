@@ -9,7 +9,8 @@ class Marshall:public Pasajero//HERENCIA
 public:
 	Marshall(string nombre, string apellido, string codigo);
 	~Marshall();
-	void ReducirPasajero(Pasajero *pasajero);
+	Evento* ReducirPasajero(Pasajero *pasajero);
+	Evento* operator-(Pasajero *pasajero);
 
 };
 

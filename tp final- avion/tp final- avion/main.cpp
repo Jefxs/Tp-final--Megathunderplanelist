@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "cLista.h"
+#include <iostream>
 //para utilizar la clase hija hay que agregar la clase padre
 using namespace std;
 #define N 3 // cant pasajeros
@@ -27,17 +28,32 @@ int main() {
 	Primera *primera = new Primera("Andres", "Naddeo", "p40901759a1");*/
 	//Piloto *piloto = new Piloto("Celia", "Etcheverry");
 	//Copiloto *copiloto = new Copiloto("Agustina", "Mustard");
-	////Marshall *marshall = new Marshall("Dami", "cloclo", "t3764982");
+	Marshall *marshall = new Marshall("Dami", "cloclo", "t3764982");
 	//Azafate *azafate[R];
 	//azafate[1] = new Azafate("Pampa", "Fafafa");
 	//azafate[0] = new Azafate("Franco", "Ferrante");
 
+
 	cLista <Pasajero> *Lposibles = new cLista <Pasajero>();
 	cLista <string>*listacodigos = new cLista<string>();
-	GenerarXPasajeros(Lposibles, listacodigos);
+	//GenerarXPasajeros(Lposibles, listacodigos);
 	Lposibles->Listar();
-	//MegaThunderPlaneList *megita=new MegaThunderPlaneList(listacodigos);
+	MegaThunderPlaneList *megita=new MegaThunderPlaneList(listacodigos);
+	Turista *turista = new Turista("Mari", "Castidad", "t4390939ak");
+	
+	
+	Evento *p = new Evento(marshall,"choloni");
+	Evento *j = new Evento(marshall, "Waffles");
+	*megita + p;
+	*megita + j;
+	*megita + (*marshall - turista);
+	cout << megita;
+	
+	
 
+	delete p;
+	delete j;
+	delete megita;
 	//megita->
 
 	//megita->RegistrarTripulantes(piloto, copiloto, azafate);//agrega a los tripulantes a la Lista de personas 
@@ -91,6 +107,14 @@ int main() {
 	return 0;
 
 }
+ostream & operator<< (ostream & out, const MegaThunderPlaneList *megita)
+{
+	for (unsigned int i = 0; i < megita->ListaEventos->getCA(); i++)
+	{
+		out << megita->ListaEventos->getItem(i)->getCodigo() << endl;
+	}
+	return out;
+}
 void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listitacodigos)
 {
 	int cont = 0;
@@ -98,7 +122,7 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 	string tipoPasajero[3] = { "TU", "BS", "PC" };
 	string array[10] = { "A", "B", "C", "D", "E", "F", "G", "H", "I","J" };
 	string asiento, *codigo, a;
-	
+	codigo = NULL;
 	int u, y, x;
 	
 
@@ -113,7 +137,7 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 				asiento = array[u] + to_string(y);
 				DNI = DNI + cont;
 				*codigo = a + to_string(DNI)+asiento;
-				if (strcmp(a.c_str(), "TU") == 0)//c._str pasa un string a cadena de chars y ahi si se puede hacer el cmp
+				if (a.c_str()== "TU")//c._str pasa un string a cadena de chars y ahi si se puede hacer el cmp
 				{
 					Turista*T = new Turista("Nombre" + to_string(cont), "Apellido" + to_string(cont), *codigo);
 					listitaposibles->AgregarItem(T);
@@ -131,7 +155,7 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 				x = rand() % 100 + 1;
 				if (x !=27)//1% de chances de que no se agregue el codigo de esta persona a la lista de codigos para pasar al avion 
 			    // esta persona podra entrar al avion
-					listitacodigos->AgregarItem(codigo);
+					listitacodigos->Agregarstring(codigo);
 				//si no se entro al if entonces esta persona sera #REBOTADA al intentar entrar al avion				
 					
 			}
@@ -142,7 +166,7 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 				*codigo = a + to_string(DNI + 1) + asiento;
 				Marshall*M = new Marshall("Nombre" + to_string(cont+1), "Apellido" + to_string(cont+1), *codigo);
 				listitaposibles->AgregarItem(M);
-				listitacodigos->AgregarItem(codigo);
+				listitacodigos->Agregarstring(codigo);
 				break;
 
 			}

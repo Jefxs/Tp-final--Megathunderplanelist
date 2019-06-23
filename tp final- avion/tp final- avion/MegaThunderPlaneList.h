@@ -24,8 +24,9 @@ public:
 	void ValidarCodigo(cLista <Pasajero>*listaposiblesp); // solo pasajeros tienen codigo
 	void ImprimirListaEventos();
 	void AgregarEvento(Evento *evento);
-
-
+	void operator+(Evento *evento);
+	friend ostream & operator<<(ostream &out,const MegaThunderPlaneList *megita);
+	friend istream & operator>>(ostream &in, MegaThunderPlaneList &megita);
 
 };
 
