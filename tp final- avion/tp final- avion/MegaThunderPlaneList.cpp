@@ -1,5 +1,6 @@
 #include "MegaThunderPlaneList.h"
 
+int MegaThunderPlaneList::HorasDeVuelo = 0;
 
 MegaThunderPlaneList::MegaThunderPlaneList(cLista <string> *codigos)
 {
@@ -64,6 +65,18 @@ void MegaThunderPlaneList::AgregarEvento(Evento *evento)//evento tiene una perso
 
 void MegaThunderPlaneList::operator+(Evento * evento)
 {
-	this->AgregarEvento(evento);
+	AgregarEvento(evento);
 }
+
+void MegaThunderPlaneList::operator++()
+{
+	HorasDeVuelo = HorasDeVuelo + 1;
+}
+
+void MegaThunderPlaneList::operator==(cLista<Pasajero>* listaposiblesp)
+{
+	ValidarCodigo(listaposiblesp);
+}
+
+
 

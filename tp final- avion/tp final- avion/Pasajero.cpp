@@ -49,3 +49,4 @@ Evento *Pasajero::PedirAyuda(Azafate * azafate)
 	Evento *eventito = azafate->AtenderPasajero();
 	return  eventito;
 }
+

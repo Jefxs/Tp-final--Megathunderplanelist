@@ -1,5 +1,6 @@
 #pragma once
 #include "Pasajero.h"
+
 //CLASE HIJA DE PASAJERO
 //NIETA DE PERSONA
 class Evento;
@@ -11,6 +12,7 @@ public:
 	~Marshall();
 	Evento* ReducirPasajero(Pasajero *pasajero);
 	Evento* operator-(Pasajero *pasajero);
+
 
 };
 

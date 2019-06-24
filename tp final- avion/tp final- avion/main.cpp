@@ -19,35 +19,53 @@ using namespace std;
 #define G 99 //cant de filas
 
 void GenerarXPasajeros(cLista <Pasajero> *Lposibles, cLista <string>*listacodigos);
-
+void Y_pasaron_cosas_en_el_vuelo(MegaThunderPlaneList *megatrueno, Azafate *azafates);
 
 
 int main() {
 	/*Ejecutivo *ejecutivo = new Ejecutivo("Topisima", "(Sandra de Noche)", "ej2312341");
 	Turista *turista = new Turista("Mari", "Castidad", "t4390939ak");
 	Primera *primera = new Primera("Andres", "Naddeo", "p40901759a1");*/
-	//Piloto *piloto = new Piloto("Celia", "Etcheverry");
-	//Copiloto *copiloto = new Copiloto("Agustina", "Mustard");
+	Piloto *piloto = new Piloto("Celia", "Etcheverry");
+	Copiloto *copiloto = new Copiloto("Agustina", "Mustard");
 	Marshall *marshall = new Marshall("Dami", "cloclo", "t3764982");
-	//Azafate *azafate[R];
-	//azafate[1] = new Azafate("Pampa", "Fafafa");
-	//azafate[0] = new Azafate("Franco", "Ferrante");
+	Azafate *Azafates[R];
+	Azafates[1] = new Azafate("Pampa", "Fafafa");
+	Azafates[0] = new Azafate("Franco", "Ferrante");
 
 
 	cLista <Pasajero> *Lposibles = new cLista <Pasajero>();
 	cLista <string>*listacodigos = new cLista<string>();
+
 	//GenerarXPasajeros(Lposibles, listacodigos);
-	Lposibles->Listar();
-	MegaThunderPlaneList *megita=new MegaThunderPlaneList(listacodigos);
-	Turista *turista = new Turista("Mari", "Castidad", "t4390939ak");
+
 	
-	
-	Evento *p = new Evento(marshall,"choloni");
+
+	//Lposibles->Listar();
+	MegaThunderPlaneList *megita = new MegaThunderPlaneList(listacodigos);
+	//Turista *turista = new Turista("Mari", "Castidad", "t4390939ak");
+	copiloto->LLamarTorreControl(); //hacer que sea evento
+	*megita + piloto->Despegando();
+	Y_pasaron_cosas_en_el_vuelo(megita, Azafates);// falta 
+	copiloto->LLamarTorreControl();
+	*megita + piloto->Aterrizando();
+
+
+	Evento *p = new Evento(marshall, "choloni");
 	Evento *j = new Evento(marshall, "Waffles");
-	*megita + p;
+	*megita + p; //sobrecarga que llama a agregar evento
+	/*string *codigo = NULL;
+	*codigo = "TU40901759A02";
+	listacodigos->Agregarstring(codigo);
+	megita->ListaCodigos->Agregarstring(codigo);
+	string p=(megita->ListaCodigos->getItem(0))->c_str();
+	cout << p;*/
+
+
 	*megita + j;
-	*megita + (*marshall - turista);
-	cout << megita;
+	*megita + (*marshall - turista); // sobrecarga que llama a agregar evento y sobrecarga del - que llama a reducir pasajero
+	//*megita == Lposibles;  //sobrecarga que llama a ValidarCodigo()
+	cout << megita; //sobrecarga << imprime la lista de eventos
 	
 	
 
@@ -96,9 +114,9 @@ int main() {
 	////delete primera;
 	//delete piloto;
 	//delete copiloto;
-	//delete marshall;
-	//delete azafate[0];
-	//delete azafate[1];
+	delete marshall;
+	delete Azafates[0];
+	delete Azafates[1];
 	delete Lposibles;
 	delete listacodigos;
 
@@ -109,10 +127,11 @@ int main() {
 }
 ostream & operator<< (ostream & out, const MegaThunderPlaneList *megita)
 {
-	for (unsigned int i = 0; i < megita->ListaEventos->getCA(); i++)
+	for (int i = 0; i < megita->ListaEventos->getCA(); i++)
 	{
 		out << megita->ListaEventos->getItem(i)->getCodigo() << endl;
 	}
+	out << "Horas de vuelo: " << megita->HorasDeVuelo << endl;
 	return out;
 }
 void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listitacodigos)
@@ -169,9 +188,150 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 				listitacodigos->Agregarstring(codigo);
 				break;
 
-			}
-				
+			}		
 		
 		}
-
+		//delete codigo;
 }
+
+void Y_pasaron_cosas_en_el_vuelo(MegaThunderPlaneList *megatrueno, Azafate *azafates[R])
+{
+	int q, L,m, p, y, h,c,b;
+	c = 0;
+
+	while (true)//en realidad es while (horasdevuelo< a algo)
+	{
+		int s = megatrueno->ListaPersonas->getCA();
+		q = rand() % s;//para devolver una persona x de la lista
+		Turista *T = dynamic_cast<Turista*>(megatrueno->ListaPersonas->getItem(q));//seria con listaperonas[q] pero no funciona la sobrecarga!!!!!
+		Ejecutivo *E = dynamic_cast<Ejecutivo*>(megatrueno->ListaPersonas->getItem(q));
+		Primera *P = dynamic_cast<Primera*>(megatrueno->ListaPersonas->getItem(q));
+		Marshall *M = dynamic_cast<Marshall*>(megatrueno->ListaPersonas->getItem(q));
+		Azafate *A = dynamic_cast<Azafate*>(megatrueno->ListaPersonas->getItem(q));
+		Piloto *Pi = dynamic_cast<Piloto*>(megatrueno->ListaPersonas->getItem(q));
+		Copiloto *C = dynamic_cast<Copiloto*>(megatrueno->ListaPersonas->getItem(q));
+
+		if (T != NULL)//si es turista
+		{
+			L = rand() % 5;
+			m = rand() % R;
+			if (L == 0)
+				*megatrueno + T->PedirComida(azafates[m]);
+			if (L == 1)
+				*megatrueno + T->PedirBebida(azafates[m]);
+			if (L == 2)
+				*megatrueno + T->PedirAyuda(azafates[m]);
+			if (L == 3)
+				T->Banio();
+			if (L == 4)
+				T->Dormir();
+		}
+		if (E != NULL)//si es ejecutivo
+		{
+			L = rand() % 6;
+			m = rand() % R;
+			if (L == 0)
+				*megatrueno + E->PedirComida(azafates[m]);
+			if (L == 1)
+				E->PedirBebida(azafates[m]);
+			if (L == 2)
+				*megatrueno + E->PedirAyuda(azafates[m]);
+			if (L == 3)
+				E->Banio();
+			if (L == 4)
+				E->Dormir();
+			if (L == 5)
+				E->UsarNotebook();
+		}
+		if (P != NULL)//si es primera
+		{
+			L = rand() % 8;
+			m = rand() % R;
+			if (L == 0)
+				*megatrueno + P->PedirComida(azafates[m]);
+			if (L == 1)
+				P->PedirBebida(azafates[m]);
+			if (L == 2)
+				*megatrueno + P->PedirAyuda(azafates[m]);
+			if (L == 3)
+				P->Banio();
+			if (L == 4)
+				P->Dormir();
+			if (L == 5)
+				P->UsarNotebook();
+			if (L == 5)
+				*megatrueno + P->Champagne(azafates[m]);
+			if (L == 5)
+				*megatrueno + P->Masajes(azafates[m]);
+		}
+		if (M != NULL)//si es marshall
+		{
+			Pasajero *U= NULL;
+			while (c != 1)
+			{
+				b = rand() % s;//para devolver una persona x de la lista
+				U = dynamic_cast<Pasajero*>(megatrueno->ListaPersonas->getItem(b));
+				if (U != NULL)//es un pasajero, no un tripulante
+				{
+					Marshall *V = dynamic_cast<Marshall*>(megatrueno->ListaPersonas->getItem(b));
+					if (V == NULL)//no es el marshal entonces estamos bien
+						c = 1;
+				}				
+			}
+		
+			*megatrueno + (M->ReducirPasajero(U));//reduce a un pasajero random que no es ni 
+			//tripulante ni el mismo marshall y esto devuelve un evento entonces se agrega a la lista de eventos
+		}
+		if (A != NULL)//si es azafate
+		{		
+				A->Banio();
+		}
+		if (Pi != NULL)//si es piloto
+		{
+			L = rand() % 5;
+			m = rand() % R;
+			
+			m = rand() % R;
+			if (L == 0)
+				*megatrueno + Pi->AsignarAnuncio(azafates[m]);
+			if (L == 1)
+			{
+				Pi->Banio();
+				*megatrueno + Pi->VuelveBanio();
+			}
+			if (L == 2)
+				*megatrueno + Pi->PedirBebida(azafates[m]);
+			if (L == 3)
+				*megatrueno + Pi->PedirComida(azafates[m]);
+			if (L == 4)
+				*megatrueno + Pi->HacerAnuncio();
+		}
+		if (C != NULL)//si es copiloto
+		{
+			L = rand() % 5;
+			m = rand() % R;
+
+			m = rand() % R;
+			if (L == 0)
+				*megatrueno + C->AsignarAnuncio(azafates[m]);
+			if (L == 1)
+				C->Banio();
+			if (L == 2)
+				*megatrueno + C->PedirBebida(azafates[m]);
+			if (L == 3)
+				*megatrueno + C->PedirComida(azafates[m]);
+			if (L == 4)
+				*megatrueno + C->HacerAnuncio();
+		}
+
+		delete T;///////// es necesario?
+		delete P;
+		delete E;
+		delete M;
+		delete A;
+		delete Pi;
+		delete C;
+		
+	}
+}
+	

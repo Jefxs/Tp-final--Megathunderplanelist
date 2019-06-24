@@ -23,6 +23,5 @@ public:
 	Evento *PedirAyuda(Azafate *azafate);
 	string getCodigo()const { return Codigo; }
 	
-
 };
 
