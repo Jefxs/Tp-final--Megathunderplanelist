@@ -66,7 +66,7 @@ int main() {
 		c = (listacodigos->QuitarenPos(i));
 		
 	}
-	delete &listacodigos;// problema
+	delete &listacodigos;
 
 	for (int i = 0; i < Lposibles->getCA(); i++)
 	{

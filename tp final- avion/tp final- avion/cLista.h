@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#define NMAX 100
+#define NMAX 1000
 
 template<class T>
 
@@ -122,8 +122,9 @@ inline void cLista<T>::Agregarstring(T *stingcito)
 {
 	if (CA < TAM)
 	{
-		CA++;
+		
 		vector[CA] = stingcito;
+		CA++;
 	}
 	else throw new exception("No hay tamaño suficiente para agregar el item");
 }

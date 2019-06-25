@@ -31,24 +31,25 @@ void MegaThunderPlaneList::RegistrarTripulantes(Piloto * piloto, Copiloto * copi
 
 void MegaThunderPlaneList::ValidarCodigo(cLista<Pasajero>* listaposiblesp)
 {
-	int r = listaposiblesp->getCA()-1;
-	int k = ListaCodigos->getCA() - 1;
+	int r = listaposiblesp->getCA();
+	int k = ListaCodigos->getCA() ;
 
 	int j = 0;
 	for (int i = 0; i < r; i++)
 	{
 		for (j = 0; j < k; j++)
 		{
-			if (listaposiblesp->getItem(i)->getCodigo() == *(ListaCodigos->getItem(j)))//si la persona esta en la lista de codigos pasa al avion
+			if ((*listaposiblesp)[i]->getCodigo() == *(*ListaCodigos)[j])//si la persona esta en la lista de codigos pasa al avion
 			{
-				/*ListaPersonas->AgregarItem(listaposiblesp->getItem(i));	*/
-				ListaPersonas->AgregarItem(listaposiblesp->getItem(i));
+				ListaPersonas->AgregarItem((*listaposiblesp)[i]);
 				break;
 			}			
 		}
 		if (j == k)
-			cout << "La persona " << listaposiblesp->getItem(i)->getNombre() << "" << listaposiblesp->getItem(i)->getApellido() << "no estaba en la lista de vuelo." << endl;//   #REBOTADO
-		//NO PODEMOS USAR EL OPERADOR[] SOBRECARGADO ASI PONEMOS listaposibles[i] en vez de listaposiblesp->getItem(i)
+		{
+			cout << "La persona " << (*listaposiblesp)[i]->getNombre() << " " << (*listaposiblesp)[i]->getApellido() << "no estaba en la lista de vuelo." << endl;//   #REBOTADO
+
+		}
 	}
 }
 

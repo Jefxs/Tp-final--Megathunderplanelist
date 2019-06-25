@@ -28,9 +28,9 @@ public:
 	void operator+(Evento *evento);
 	void operator++();
 	void operator==(cLista<Pasajero>* listaposiblesp);
-	friend ostream & operator<<(ostream &out,const MegaThunderPlaneList *megita);
+	friend ostream & operator<<(ostream &out,const MegaThunderPlaneList *megita);//IMPRIME LA LISTA DE EVENTOS
 	//friend istream & operator>>(ostream &in, MegaThunderPlaneList &megita);
-
+	friend ostream & operator<(ostream &o, const MegaThunderPlaneList *megita);//IMPRIME LA LISTA DE PERSONAS
 
 };
 
