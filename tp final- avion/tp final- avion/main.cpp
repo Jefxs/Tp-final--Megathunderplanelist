@@ -60,20 +60,20 @@ int main() {
 	cout << megita; //sobrecarga << imprime la lista de eventos
 	
 	
-	for (int i = 0; i < listacodigos->getCA(); i++)
-	{
-		string *c;
-		c = (listacodigos->QuitarenPos(i));
-		
-	}
-	delete &listacodigos;// problema
+	//for (int i = 0; i < listacodigos->getCA(); i++)
+	//{
+	//	string *c;
+	//	c = (listacodigos->QuitarenPos(i));
+	//	
+	//}
+	delete listacodigos;// problema
 
-	for (int i = 0; i < Lposibles->getCA(); i++)
-	{
-		Persona *c;
-		c = (Lposibles->QuitarenPos(i));
-		delete c;
-	}
+	//for (int i = 0; i < Lposibles->getCA(); i++)
+	//{
+	//	Persona *c;
+	//	c = (Lposibles->QuitarenPos(i));
+	//	delete c;
+	//}
 	delete Lposibles;
 	//for de quitarde codigos//vacio listacodigos
 	//vaciar lposibles
@@ -111,7 +111,7 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 	string tipoPasajero[3] = { "TU", "BS", "PC" };
 	string array[10] = { "A", "B", "C", "D", "E", "F", "G", "H", "I","J" };
 	string asiento, *codigo, a;
-	codigo = new string();
+	
 	int u, y, x;
 	
 
@@ -125,27 +125,33 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 				cont++;
 				asiento = array[u] + to_string(y);
 				DNI = DNI + cont;
-				*codigo = a + to_string(DNI)+asiento;
-				if (a.c_str()== "TU")//c._str pasa un string a cadena de chars y ahi si se puede hacer el cmp
-				{
-					Turista*T = new Turista("Nombre" + to_string(cont), "Apellido" + to_string(cont), *codigo);
-					listitaposibles->AgregarItem(T);
+				
+				codigo = &(a + to_string(DNI)+asiento);
+				try {
+					if (a.c_str() == "TU")//c._str pasa un string a cadena de chars y ahi si se puede hacer el cmp
+					{
+						Turista*T = new Turista("Nombre" + to_string(cont), "Apellido" + to_string(cont), *codigo);
+						listitaposibles->AgregarItem(T);
+					}
+					if (strcmp(a.c_str(), "BS") == 0)
+					{
+						Ejecutivo*E = new Ejecutivo("Nombre" + to_string(cont), "Apellido" + to_string(cont), *codigo);
+						listitaposibles->AgregarItem(E);
+					}
+					if (strcmp(a.c_str(), "EJ") == 0)
+					{
+						Primera*P = new Primera("Nombre" + to_string(cont), "Apellido" + to_string(cont), *codigo);
+						listitaposibles->AgregarItem(P);
+					}
+					x = rand() % 100 + 1;
+					if (x != 27)//1% de chances de que no se agregue el codigo de esta persona a la lista de codigos para pasar al avion 
+								// esta persona podra entrar al avion
+						listitacodigos->Agregarstring(codigo);
+					//si no se entro al if entonces esta persona sera #REBOTADA al intentar entrar al avion		
 				}
-				if (strcmp(a.c_str(), "BS") == 0)
-				{
-					Ejecutivo*E = new Ejecutivo("Nombre" + to_string(cont), "Apellido" + to_string(cont), *codigo);
-					listitaposibles->AgregarItem(E);
-				}
-				if (strcmp(a.c_str(), "EJ") == 0)
-				{
-					Primera*P = new Primera("Nombre" + to_string(cont), "Apellido" + to_string(cont), *codigo);
-					listitaposibles->AgregarItem(P);
-				}
-				x = rand() % 100 + 1;
-				if (x !=27)//1% de chances de que no se agregue el codigo de esta persona a la lista de codigos para pasar al avion 
-			    // esta persona podra entrar al avion
-					listitacodigos->Agregarstring(codigo);
-				//si no se entro al if entonces esta persona sera #REBOTADA al intentar entrar al avion				
+				catch (exception* e) {
+					cout << e->what() << endl;
+					}
 					
 			}
 
@@ -159,9 +165,9 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 				break;
 
 			}		
-		
+			codigo = NULL;
 		}
-		delete codigo;
+		
 }
 
 void Y_pasaron_cosas_en_el_vuelo(MegaThunderPlaneList *megatrueno, Azafate *azafates[R])

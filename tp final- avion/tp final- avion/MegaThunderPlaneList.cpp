@@ -12,9 +12,9 @@ MegaThunderPlaneList::MegaThunderPlaneList(cLista <string> *codigos)
 
 MegaThunderPlaneList::~MegaThunderPlaneList()
 {
-	delete ListaCodigos;
+	//delete ListaCodigos;
 	delete ListaEventos;
-	delete ListaPersonas;
+	//delete ListaPersonas;
 }
 
 void MegaThunderPlaneList::RegistrarTripulantes(Piloto * piloto, Copiloto * copiloto, Azafate * azafate[R])
