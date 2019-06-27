@@ -14,6 +14,7 @@ protected://para que se lo pase a los hijos
 public:
 	
 	Pasajero(string nombre, string apellido, string codigo);
+	Pasajero();
 	~Pasajero();
 	void Banio();
 	void Imprimir();

@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClInclude Include="Azafate.h" />
     <ClInclude Include="cLista.h" />
+    <ClInclude Include="Codigo.h" />
     <ClInclude Include="Copiloto.h" />
     <ClInclude Include="Ejecutivo.h" />
     <ClInclude Include="Evento.h" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Azafate.cpp" />
+    <ClCompile Include="Codigo.cpp" />
     <ClCompile Include="Copiloto.cpp" />
     <ClCompile Include="Ejecutivo.cpp" />
     <ClCompile Include="Evento.cpp" />

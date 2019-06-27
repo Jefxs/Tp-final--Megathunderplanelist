@@ -6,6 +6,7 @@ class Turista:public Pasajero //HERENCIA
 {
 public:
 	Turista(string nombre, string apellido, string codigo);
+	Turista();
 	~Turista();
 };
 

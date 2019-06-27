@@ -6,6 +6,10 @@ Turista::Turista(string nombre, string apellido, string codigo) : Pasajero(nombr
 {
 }
 
+Turista::Turista() : Pasajero()
+{
+}
+
 
 Turista::~Turista()
 {

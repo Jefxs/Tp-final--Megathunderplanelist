@@ -54,6 +54,9 @@
     <ClInclude Include="Evento.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Codigo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MegaThunderPlaneList.cpp">
@@ -90,6 +93,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Codigo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

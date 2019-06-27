@@ -9,6 +9,11 @@ Pasajero::Pasajero(string nombre, string apellido, string codigo):Persona( nombr
 	
 }
 
+Pasajero::Pasajero():Persona(), Codigo(" ")
+{
+	
+}
+
 Pasajero::~Pasajero()
 {
 }

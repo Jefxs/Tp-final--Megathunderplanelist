@@ -6,6 +6,7 @@
 #include "Copiloto.h"
 #include "Pasajero.h"
 #include "Azafate.h"
+#include "Codigo.h"
 #define R 2
 
 class MegaThunderPlaneList
@@ -13,13 +14,13 @@ class MegaThunderPlaneList
 	friend class Evento;
 	cLista <Evento>*ListaEventos;
 	cLista <Persona>*ListaPersonas;
-	cLista <string>*ListaCodigos;
+	cLista <Codigo>*ListaCodigos;
 	friend int main();//para poder acceder a la lista de personas desde el main 
 	friend void  Y_pasaron_cosas_en_el_vuelo(MegaThunderPlaneList *megatrueno, Azafate *azafates[R]);
 
 public:
 	static int HorasDeVuelo;
-	MegaThunderPlaneList(cLista <string> *codigos);
+	MegaThunderPlaneList(cLista <Codigo> *codigos);
 	~MegaThunderPlaneList();
 	void RegistrarTripulantes(Piloto *piloto, Copiloto *copiloto, Azafate * azafate[R]);
 	void ValidarCodigo(cLista <Pasajero>*listaposiblesp); // solo pasajeros tienen codigo

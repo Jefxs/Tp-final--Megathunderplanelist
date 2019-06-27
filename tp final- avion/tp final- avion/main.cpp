@@ -12,13 +12,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include "cLista.h"
+#include "Codigo.h"
 #include <iostream>
 //para utilizar la clase hija hay que agregar la clase padre
 using namespace std;
 #define N 3 // cant pasajeros
 #define G 99 //cant de filas
 
-void GenerarXPasajeros(cLista <Pasajero> *Lposibles, cLista <string>*listacodigos);
+void GenerarXPasajeros(cLista <Pasajero> *Lposibles, cLista <Codigo>*listacodigos);
 void Y_pasaron_cosas_en_el_vuelo(MegaThunderPlaneList *megatrueno, Azafate *azafates[R]);
 
 
@@ -33,17 +34,12 @@ int main() {
 
 
 	cLista <Pasajero> *Lposibles = new cLista <Pasajero>();
-	cLista <string>*listacodigos = new cLista<string>();
+	cLista <Codigo>*listacodigos = new cLista<Codigo>();
 
 	GenerarXPasajeros(Lposibles, listacodigos);
 	MegaThunderPlaneList *megita = new MegaThunderPlaneList(listacodigos);
 	//vaciar listacodigos
-	for (int i = 0; i < N; i++)
-	{
-		cout << listacodigos->getItem(i);
-
-	}
-
+	
 	megita->RegistrarTripulantes(piloto, copiloto, Azafates);//agrega a los tripulantes a la Lista de personas 
 	
 	
@@ -54,22 +50,15 @@ int main() {
 	copiloto->LLamarTorreControl(); //hacer que sea evento
 	*megita + piloto->Despegando();
 
-	*megita + piloto->PedirBebida(Azafates[0]);
 
 
-	//Y_pasaron_cosas_en_el_vuelo(megita, Azafates);// falta 
+
+	Y_pasaron_cosas_en_el_vuelo(megita, Azafates);// falta 
 	copiloto->LLamarTorreControl();
 	*megita + piloto->Aterrizando();
-	//cout < megita;
-	cout << megita; //sobrecarga << imprime la lista de eventos
+	cout << "Lista de eventos"<<endl<<megita<<endl; //sobrecarga << imprime la lista de eventos
 	
 	
-	//for (int i = 0; i < listacodigos->getCA(); i++)
-	//{
-	//	string *c;
-	//	c = (listacodigos->QuitarenPos(i));
-	//	
-	//}
 
 	try
 	{
@@ -80,18 +69,8 @@ int main() {
 		cout << e->what() << endl;
 	}
 		
-	//for (int i = 0; i < Lposibles->getCA(); i++)
-	//{
-	//	Persona *c;
-	//	c = (Lposibles->QuitarenPos(i));
-	//	delete c;
-	//}
-	delete Lposibles;
-	//for de quitarde codigos//vacio listacodigos
-	//vaciar lposibles
 	
-	//delete listacodigos;
-	//delete lposibles
+	delete Lposibles;
 	delete megita;
 
 
@@ -116,7 +95,7 @@ ostream & operator<< (ostream & out, const MegaThunderPlaneList *megita)//IMPRIM
 	 }
 	 return o;
 }
-void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listitacodigos)
+void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <Codigo>*listitacodigos)
 {
 	srand(time(0));
 	int cont = 0;
@@ -124,7 +103,7 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 	string tipoPasajero[3] = { "TU", "BS", "PC" };
 	string array[10] = { "A", "B", "C", "D", "E", "F", "G", "H", "I","J" };
 	string asiento,  a; //codigo
-	string codigos[N + 1];
+	string codigo = " ";
 
 
 	/*codigo = "";*/
@@ -148,25 +127,25 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 				cout << "asiento:" << asiento << endl;
 				
 				cout << "a:" << a << endl;
-				codigos[cont-1] = a + to_string(DNI) + asiento;
-				// construc codigo(str codigo)
+				codigo = a + to_string(DNI) + asiento;
+				Codigo *Codi = new Codigo(codigo);
 				//codigo = a + to_string(DNI)+asiento;
 				try {
 					if (a == tipoPasajero[0])//c._str pasa un string a cadena de chars y ahi si se puede hacer el cmp
 					{
-						Turista*T = new Turista("Nombre" + to_string(cont), "Apellido" + to_string(cont), codigos[cont - 1]);
+						Turista*T = new Turista("Nombre" + to_string(cont), "Apellido" + to_string(cont), codigo);
 						listitaposibles->AgregarItem(T);
 						cout<< "se creo un turista"<< endl;
 					}
 					if (a == tipoPasajero[1])
 					{
-						Ejecutivo*E = new Ejecutivo("Nombre" + to_string(cont), "Apellido" + to_string(cont), codigos[cont - 1]);
+						Ejecutivo*E = new Ejecutivo("Nombre" + to_string(cont), "Apellido" + to_string(cont), codigo);
 						listitaposibles->AgregarItem(E);
 						cout << "se creo un ejecutivo" << endl;
 					}
 					if (a == tipoPasajero[2])
 					{
-						Primera*P = new Primera("Nombre" + to_string(cont), "Apellido" + to_string(cont), codigos[cont - 1]);
+						Primera*P = new Primera("Nombre" + to_string(cont), "Apellido" + to_string(cont), codigo);
 						listitaposibles->AgregarItem(P);
 						cout << "se creo un primera" << endl;
 					}
@@ -176,8 +155,8 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 								// esta persona podra entrar al avion
 					{
 						
-						listitacodigos->Agregarstring(&codigos[cont - 1]);//
-						cout << "codigo:"<<y-1<<endl<<(*listitacodigos->getItem(0))<<endl;
+						listitacodigos->AgregarItem(Codi);//
+						cout << "codigo:"<<cont-1<<endl<<listitacodigos->getItem(cont-1)->getCodigo()<<endl;
 						
 						//si no se entro al if entonces esta persona sera #REBOTADA al intentar entrar al avion		
 					}
@@ -188,14 +167,15 @@ void GenerarXPasajeros(cLista <Pasajero> *listitaposibles, cLista <string>*listi
 					}
 					
 			}
-
+			
 			if (cont >= N)
 			{//se crea el marshall y se lo agrega a las lista// esta undercover por esta aca con los pasajeros y es igual de basic
 				asiento = array[u] + to_string(y);
-				codigos[cont] = a + to_string(DNI + 1) + asiento;
-				Marshall*M = new Marshall("Nombre" + to_string(cont+1), "Apellido" + to_string(cont+1), codigos[cont]);
+				codigo = a + to_string(DNI + 1) + asiento;
+				Codigo *Cody = new Codigo(codigo);
+				Marshall*M = new Marshall("Nombre" + to_string(cont+1), "Apellido" + to_string(cont+1), codigo);
 				listitaposibles->AgregarItem(M);
-				listitacodigos->Agregarstring(&codigos[cont]);
+				listitacodigos->AgregarItem(Cody);
 				cout << "se crea marshall" << endl;
 				break;
 
@@ -216,13 +196,19 @@ void Y_pasaron_cosas_en_el_vuelo(MegaThunderPlaneList *megatrueno, Azafate *azaf
 	Azafate *A;
 	Piloto * Pi;
 	Copiloto * C;
-	while (true)//en realidad es while (horasdevuelo< a algo)
+	int cont = 0;
+	int s = 0;
+	int r = 0;
+	while (r<9)//en realidad es while (horasdevuelo< a algo)
 	{
+		r++;
+		cout << "r:" << r << endl;
+		cont++;
 		srand(time(0));
-		int s = megatrueno->ListaPersonas->getCA();
+		s = megatrueno->ListaPersonas->getCA();
 		q = rand() % s;//para devolver una persona x de la lista
-		
-		T = dynamic_cast<Turista*>((*megatrueno->ListaPersonas)[q]);//seria con listaperonas[q] pero no funciona la sobrecarga!!!!!
+		cout << "q:" << q << endl;
+		T = dynamic_cast<Turista*>(megatrueno->ListaPersonas->getItem(q));//seria con listaperonas[q] pero no funciona la sobrecarga!!!!!
 		E = dynamic_cast<Ejecutivo*>((*megatrueno->ListaPersonas)[q]);
 		P = dynamic_cast<Primera*>((*megatrueno->ListaPersonas)[q]);
 		M = dynamic_cast<Marshall*>((*megatrueno->ListaPersonas)[q]);
@@ -354,14 +340,15 @@ void Y_pasaron_cosas_en_el_vuelo(MegaThunderPlaneList *megatrueno, Azafate *azaf
 				*megatrueno + C->HacerAnuncio();
 		}
 
-		delete T;
-		delete P;
-		delete E;
-		delete M;
-		delete A;
-		delete Pi;
-		delete C;
+		
 		
 	}
+	delete T;
+	delete P;
+	delete E;
+	delete M;
+	delete A;
+	delete Pi;
+	delete C;
 }
 	

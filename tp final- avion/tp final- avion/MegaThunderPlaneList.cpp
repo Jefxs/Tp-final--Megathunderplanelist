@@ -2,13 +2,9 @@
 
 int MegaThunderPlaneList::HorasDeVuelo = 0;
 
-MegaThunderPlaneList::MegaThunderPlaneList(cLista <string> *codigos)
+MegaThunderPlaneList::MegaThunderPlaneList(cLista <Codigo> *codigos)
 {
-	ListaCodigos = new cLista <string>();
-	for (int i = 0; i < codigos->getCA(); i++)
-	{
-		ListaCodigos->Agregarstring(*(codigos->getItem(0)));
-	}
+	ListaCodigos = codigos;
 	ListaEventos = new cLista <Evento>();//=NULL?
 	ListaPersonas = new cLista <Persona>();//=NULL?
 }
@@ -43,7 +39,7 @@ void MegaThunderPlaneList::ValidarCodigo(cLista<Pasajero>* listaposiblesp)
 	{
 		for (j = 0; j < k; j++)
 		{
-			if ((*listaposiblesp)[i]->getCodigos() == (*(*ListaCodigos)[j]))//si la persona esta en la lista de codigos pasa al avion
+			if ((*listaposiblesp)[i]->getCodigos() == (*ListaCodigos)[j]->getCodigo())//si la persona esta en la lista de codigos pasa al avion
 			{
 				ListaPersonas->AgregarItem((*listaposiblesp)[i]);
 				break;

@@ -12,7 +12,8 @@ protected://para que se lo pase a los hijos
 	
 public:
 	Persona(string nombre, string apellido);
-	~Persona();
+	Persona();
+	virtual ~Persona();
 	virtual void Banio()=0;//este tambn se pasa a los hijos, pero como es un metodo no tiene que estar protegido #ABSTRACTA
 	string getNombre() { return Nombre; }
 	string getCodigo() { return Nombre; }
