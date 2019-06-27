@@ -23,7 +23,7 @@ public:
 
 	bool AgregarItem(T *item);
 	bool AgregarItemOrdenado(const T *item);
-	void Agregarstring(T *stingcito);
+	void Agregarstring(string *stingcito);
 
 	T* Quitar(string codigo);
 	T* Quitar(T *item);
@@ -117,9 +117,10 @@ bool cLista<T>::AgregarItemOrdenado(const T * item)
 	return NULL;
 }
 
-template<class T>
-inline void cLista<T>::Agregarstring(T *stingcito)
+//template<class T>
+inline void cLista<string>::Agregarstring(string *stingcito)
 {
+	
 	if (CA < TAM)
 	{
 		
@@ -131,7 +132,7 @@ inline void cLista<T>::Agregarstring(T *stingcito)
 
 template<class T>
 T* cLista<T>::Quitar(string codigo) {
-
+	
 	unsigned int pos = getItemPos(codigo);
 	if (pos >= CA)return NULL;
 	return QuitarenPos(pos);
@@ -232,5 +233,5 @@ inline T * cLista<T>::operator[](int pos)
 	if (pos < CA)
 		return vector[pos];
 	return NULL;
-}
+ }
 

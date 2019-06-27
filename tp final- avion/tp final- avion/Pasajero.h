@@ -21,7 +21,7 @@ public:
 	Evento *PedirBebida(Azafate *azafate);
 	void Dormir();
 	Evento *PedirAyuda(Azafate *azafate);
-	string getCodigo()const { return Codigo; }
+	string getCodigos()const { return Codigo; }
 	
 };
 
