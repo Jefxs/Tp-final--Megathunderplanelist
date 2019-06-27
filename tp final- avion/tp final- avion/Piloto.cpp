@@ -26,7 +26,7 @@ Evento *Piloto::Despegando()
 
 Evento *Piloto::Aterrizando()
 {
-	cout << "Aterrizaje" << endl;
+	cout << "ATERRIZAJE" << endl;
 	Evento *eventito = new Evento(this, "Aterrizando el avion.");
 	return  eventito;
 }
@@ -56,7 +56,7 @@ Evento *Piloto::HacerAnuncio()
 
 Evento *Piloto::AsignarAnuncio(Azafate * azafate)
 {
-	cout << "Piloto" << Nombre << " " << Apellido << " asigna anuncio a azafate." << endl;
+	cout<< Nombre << " " << Apellido << " asigna anuncio a azafate." << endl;
 	Evento *eventito = azafate->HacerAnuncio();
 	return eventito;
 }

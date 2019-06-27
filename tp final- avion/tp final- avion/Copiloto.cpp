@@ -14,6 +14,6 @@ Copiloto::~Copiloto()
 
 Evento Copiloto::LLamarTorreControl()
 {
-	cout <<"Copiloto:"<< Nombre << " " << Apellido << "llama a torre de control." << endl;
+	cout<< Nombre << " " << Apellido << "llama a torre de control." << endl;
 	return Evento(this, "Copiloto llama a torre de control.");
 }

@@ -15,7 +15,7 @@ Marshall::~Marshall()
 Evento* Marshall::ReducirPasajero(Pasajero * pasajero)
 {
 
-	cout << "Marshall:" << Nombre << " " << Apellido << " reduce a pasajero." << endl;
+	cout<< Nombre << " " << Apellido << " reduce a pasajero." << endl;
 	Evento *eventito = new Evento(this, Nombre + " " + Apellido +" "+ " reduce a " +pasajero->getNombre() + " " + pasajero->getApellido() + ".");
 	return eventito;
 }
