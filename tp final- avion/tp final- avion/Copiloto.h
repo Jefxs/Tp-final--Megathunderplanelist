@@ -11,6 +11,6 @@ class Copiloto:public Piloto //HERENCIA
 public:
 	Copiloto(string nombre, string apellido) ;
 	~Copiloto();
-	Evento LLamarTorreControl();
+	Evento *LLamarTorreControl();
 };
 

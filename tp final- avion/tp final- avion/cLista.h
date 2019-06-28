@@ -23,7 +23,6 @@ public:
 
 	bool AgregarItem(T *item);
 	bool AgregarItemOrdenado(const T *item);
-	void Agregarstring(string *stingcito);
 
 	T* Quitar(string codigo);
 	T* Quitar(T *item);
@@ -96,14 +95,17 @@ template<class T>
 bool cLista<T>::AgregarItem(T * item)
 {
 
-	T *i_f = BuscarItem(item->getCodigo());
+	/*T *i_f = BuscarItem(item->getCodigo());
 	if (i_f != NULL)throw new exception("Ya se encuentra en la lista");
-
+*/
 	if (CA < TAM)
 		vector[CA++] = item;
 	else throw new exception("No hay tamaño suficiente para agregar el item");
 	return true;
 }
+
+
+
 
 template<class T>
 bool cLista<T>::AgregarItemOrdenado(const T * item)
@@ -117,18 +119,6 @@ bool cLista<T>::AgregarItemOrdenado(const T * item)
 	return NULL;
 }
 
-//template<class T>
-inline void cLista<string>::Agregarstring(string *stingcito)
-{
-	
-	if (CA < TAM)
-	{
-		
-		vector[CA] = stingcito;
-		CA++;
-	}
-	else throw new exception("No hay tamaño suficiente para agregar el item");
-}
 
 template<class T>
 T* cLista<T>::Quitar(string codigo) {

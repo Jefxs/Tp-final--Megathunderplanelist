@@ -5,27 +5,32 @@ int MegaThunderPlaneList::HorasDeVuelo = 0;
 MegaThunderPlaneList::MegaThunderPlaneList(cLista <Codigo> *codigos)
 {
 	ListaCodigos = codigos;
-	ListaEventos = new cLista <Evento>();//=NULL?
-	ListaPersonas = new cLista <Persona>();//=NULL?
+	ListaEventos = new cLista <Evento>();
+	ListaPersonas = new cLista <Persona>();
 }
-
 
 MegaThunderPlaneList::~MegaThunderPlaneList()
 {
-	//delete ListaCodigos;
 	delete ListaEventos;
-	//delete ListaPersonas;
+	
 }
 
 void MegaThunderPlaneList::RegistrarTripulantes(Piloto * piloto, Copiloto * copiloto, Azafate * azafate[R])
 {
 	//agrego tripulantes a lista
-	ListaPersonas->AgregarItem(piloto);
-	ListaPersonas->AgregarItem(copiloto);
-	for (int i = 0; i < R; i++)
+	try
 	{
-		ListaPersonas->AgregarItem(azafate[i]);
+		ListaPersonas->AgregarItem(piloto);
+		ListaPersonas->AgregarItem(copiloto);
+		for (int i = 0; i < R; i++)
+		{
+			ListaPersonas->AgregarItem(azafate[i]);
+		}
 	}
+	catch (exception* e) {
+		cout << e->what() << endl;
+	}
+	
 }
 
 
